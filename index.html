@@ -3,700 +3,664 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a0d12" />
-    <meta name="description" content="Portfólio" />
-    <meta property="og:title" content="Francinilton — Programador & Analista" />
+    <meta name="theme-color" content="#0b0f14" />
+    <meta
+      name="description"
+      content="Portfólio de Francinilton Sobreira, full stack developer focado em produto, dados e experiência."
+    />
+    <meta property="og:title" content="Francinilton | Full Stack Developer" />
     <meta
       property="og:description"
-      content="Código, análise e produto para transformar problemas reais em soluções digitais."
+      content="Portfólio editorial com projetos, habilidades, processo e contato em PT, EN e ES."
     />
     <meta property="og:type" content="website" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>Francinilton — Programador & Analista</title>
+    <title>Francinilton | Full Stack Developer</title>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <header class="site-header" aria-label="Navegação principal">
-      <a class="brand" href="#inicio" aria-label="Ir para o início">
-        <span class="brand-prompt">~/francinilton</span>
+    <div class="site-shell">
+      <header class="topbar" aria-label="Navegação principal">
+        <a class="brand" href="#inicio" aria-label="Ir para o início">
+          <span class="brand-mark">FS</span>
+          <span class="brand-copy">
+            <strong>Francinilton Sobreira</strong>
+            <span data-i18n="brand.subtitle">Full Stack </span>
+          </span>
+        </a>
 
-        <span class="brand-skills" aria-hidden="true">
-          <span
-            class="skills-typed"
-            data-skills="React, TypeScript, Node.js, Python, SQL, Flask"
-          ></span
-          ><span class="skills-cursor"></span>
-        </span>
-      </a>
+        <nav class="tabs" id="menu" aria-label="Seções">
+          <a href="#sobre" data-tab
+            ><i data-lucide="user"></i
+            ><span data-i18n="nav.about">sobre.tsx</span></a
+          >
+          <a href="#projetos" data-tab
+            ><i data-lucide="layout-grid"></i
+            ><span data-i18n="nav.projects">projetos/</span></a
+          >
+          <a href="#processo" data-tab
+            ><i data-lucide="workflow"></i
+            ><span data-i18n="nav.process">processo.md</span></a
+          >
+          <a href="#contato" data-tab class="nav-contact"
+            ><i data-lucide="message-circle-more"></i
+            ><span data-i18n="nav.contact">contato.sh</span></a
+          >
+        </nav>
 
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="menu"
-      >
-        <i data-lucide="menu" class="icon-open"></i>
-        <i data-lucide="x" class="icon-close"></i>
-        <span class="sr-only">Abrir menu</span>
-      </button>
+        <div class="lang-switch" aria-label="Language switch">
+          <button type="button" class="lang-pill is-active" data-lang-btn="pt">
+            PT
+          </button>
+          <button type="button" class="lang-pill" data-lang-btn="en">EN</button>
+          <button type="button" class="lang-pill" data-lang-btn="es">ES</button>
+        </div>
+      </header>
 
-      <nav id="menu" aria-label="Seções">
-        <a href="#sobre" data-tab><i data-lucide="file-code-2"></i>sobre.tsx</a>
-        <a href="#projetos" data-tab
-          ><i data-lucide="folder-git-2"></i>projetos/</a
-        >
-        <a href="#processo" data-tab
-          ><i data-lucide="file-text"></i>processo.md</a
-        >
-        <a href="#contato" class="nav-contact" data-tab
-          ><i data-lucide="terminal"></i>contato.sh</a
-        >
-      </nav>
-    </header>
-
-    <main id="conteudo">
-      <section class="hero" id="inicio">
-        <div class="hero-grid" aria-hidden="true"></div>
-
-        <div class="terminal reveal">
-          <div class="terminal-bar">
-            <span class="dot dot-red"></span><span class="dot dot-amber"></span
-            ><span class="dot dot-green"></span>
-            <span class="terminal-path">francinilton@portfolio — zsh</span>
-          </div>
-          <div class="terminal-body">
-            <p class="terminal-line">
-              <span class="prompt-user">francinilton</span
-              ><span class="prompt-at">@</span
-              ><span class="prompt-host">portfolio</span
-              ><span class="prompt-sep">:~$</span>
-              <span class="typed" data-typed="whoami"></span
-              ><span class="type-cursor"></span>
+      <main id="conteudo">
+        <section class="hero section" id="inicio">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">
+              <i data-lucide="terminal"></i>
+              <span data-i18n="hero.eyebrow"
+                >Portfólio em versão editorial</span
+              >
             </p>
 
-            <h1 class="hero-title" aria-label="Do código à decisão">
-              <span class="line reveal"
-                ><span class="tok-kw">const</span>
-                <span class="tok-var">carreira</span>
-                <span class="tok-op">=</span></span
-              >
-              <span class="line accent reveal">"DO CÓDIGO À DECISÃO"</span
-              ><span class="tok-op reveal">;</span>
+            <h1 class="hero-title" data-i18n-html="hero.title">
+              Código que entende o negócio.<br />Decisões que viram produto.
             </h1>
 
-            <p class="terminal-out reveal">
-              Programador e analista de sistemas. Eu conecto tecnologia, dados e
-              visão de negócio para criar produtos que resolvem o problema
-              certo.
+            <p class="hero-text" data-i18n="hero.copy">
+              Eu construo interfaces, APIs e análises que traduzem complexidade
+              em soluções claras, rápidas e confiáveis.
             </p>
 
-            <div class="terminal-footer reveal">
-              <span class="status-line"
-                ><span class="status-dot"></span>Disponível para novos
-                projetos<span class="meta-separator">/</span>Crato, CE</span
-              >
-              <a class="run-link" href="#projetos">
-                <i data-lucide="chevron-right"></i>ver --projetos
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projetos">
+                <i data-lucide="arrow-down-right"></i>
+                <span data-i18n="hero.cta.projects">Ver projetos</span>
+              </a>
+              <a class="button button-secondary" href="#contato">
+                <i data-lucide="send"></i>
+                <span data-i18n="hero.cta.contact">Falar comigo</span>
               </a>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="about section" id="sobre">
-        <div class="section-label reveal">
-          <i data-lucide="hash"></i> 01_perfil
-        </div>
-        <div class="about-grid">
-          <div class="about-copy reveal">
-            <span class="eyebrow eyebrow-inline">
-              <i data-lucide="terminal"></i> sobre.tsx
-            </span>
-            <h2>
-              Não basta funcionar.<br /><span class="accent-text"
-                >Precisa fazer sentido.</span
-              >
-            </h2>
-            <p class="lead">
-              Minha jornada vai da implementação à análise: entendo o contexto,
-              organizo a complexidade e transformo necessidades em software
-              útil.
-            </p>
-            <p>
-              Hoje atuo como <strong>Analista de Sistemas na UNILEÃO</strong>,
-              com foco em requisitos, arquitetura, desenvolvimento, dados e
-              entrega, sempre com atenção à clareza, segurança e experiência de
-              quem usa.
-            </p>
-            <div class="social-strip" aria-label="Links principais">
-              <a
-                class="social-pill social-pill-primary"
-                href="https://github.com/francijrjr"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i data-lucide="github"></i> GitHub
-              </a>
-              <a
-                class="social-pill"
-                href="https://www.linkedin.com/in/francijrjr/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i data-lucide="linkedin"></i> LinkedIn
-              </a>
-              <a class="social-pill" href="mailto:contato@fjsolution.com.br">
-                <i data-lucide="mail"></i> E-mail
-              </a>
+            <div class="hero-stats" aria-label="Resumo profissional">
+              <article class="stat-card">
+                <span data-i18n="hero.stat.role.label">Cargo</span>
+                <strong data-i18n="hero.stat.role.value"
+                  >Full Stack Developer</strong
+                >
+              </article>
+              <article class="stat-card">
+                <span data-i18n="hero.stat.location.label">Base</span>
+                <strong data-i18n="hero.stat.location.value">Crato, CE</strong>
+              </article>
+              <article class="stat-card">
+                <span data-i18n="hero.stat.focus.label">Foco</span>
+                <strong data-i18n="hero.stat.focus.value"
+                  >Produto, dados e UX</strong
+                >
+              </article>
             </div>
           </div>
 
-          <aside class="profile-card reveal" aria-label="Perfil profissional">
-            <div class="profile-avatar" aria-hidden="true">
-              <span>
-                <img
-                  src="https://media.licdn.com/dms/image/v2/D4E03AQHbqV0cbFnjoA/profile-displayphoto-scale_400_400/B4EZ1yqgOnGkAg-/0/1775745239775?e=1789603200&v=beta&t=tiEdSSs1zfLR7BZLj5Cq8R1c99nVJ_4zA2rLWrl9qT0"
-                  alt="Francinilton Sobreira"
-                />
-              </span>
-            </div>
-            <div class="profile-meta">
-              <span class="profile-role">Full Stack Developer</span>
-              <h3>Francinilton Sobreira</h3>
-              <p>
-                Do código à decisão, conecto produto, dados e execução com foco
-                em clareza.
-              </p>
-              <div class="profile-stats">
+          <aside class="hero-panel reveal" aria-label="Painel de resumo">
+            <div class="panel-shell">
+              <div class="panel-top">
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+                <span class="panel-label" data-i18n="hero.panel.label"
+                  >workspace / summary</span
+                >
+              </div>
+
+              <div class="panel-grid">
+                <div class="panel-main">
+                  <span class="panel-kicker" data-i18n="hero.panel.kicker"
+                    >Atuação atual</span
+                  >
+                  <h2 data-i18n="hero.panel.title">Full Stack Developer</h2>
+                  <p data-i18n="hero.panel.copy">
+                    Conecto implementação, análise e decisão técnica em projetos
+                    que exigem clareza e segurança.
+                  </p>
+                </div>
+
+                <div class="panel-code" aria-hidden="true">
+                  <span>01</span>
+                  <code>const role = "Full Stack Developer";</code>
+                  <span>02</span>
+                  <code>const mindset = "do código à decisão";</code>
+                  <span>03</span>
+                  <code>const stack = ["React", "TS", "Node"];</code>
+                </div>
+              </div>
+
+              <div class="panel-footer">
                 <div>
-                  <span>Stack principal</span>
-                  <strong>React • TS • Node</strong>
+                  <span data-i18n="hero.panel.footer.left.label">Build</span>
+                  <strong data-i18n="hero.panel.footer.left.value"
+                    >Interfaces, APIs e dados</strong
+                  >
                 </div>
                 <div>
-                  <span>Foco atual</span>
-                  <strong>Arquitetura e produto</strong>
+                  <span data-i18n="hero.panel.footer.right.label">Status</span>
+                  <strong data-i18n="hero.panel.footer.right.value"
+                    >Aberto para projetos</strong
+                  >
                 </div>
               </div>
             </div>
           </aside>
-        </div>
+        </section>
 
-        <div class="skills-shell reveal" id="habilidades">
-          <div class="skills-heading">
-            <h3>Habilidades organizadas por contexto</h3>
-            <p>
-              Uma leitura mais clara da minha atuação, separando tecnologia,
-              dados e visão de produto.
-            </p>
-          </div>
-
-          <div class="skills-grid" aria-label="Grupos de habilidades">
-            <article class="skill-group">
-              <div class="skill-group-top">
-                <i data-lucide="monitor-smartphone" class="skill-icon"></i>
-                <span>Frontend</span>
-              </div>
-              <h4>Interfaces e experiência</h4>
-              <p>
-                Componentes responsivos, consistência visual e fluxos claros.
-              </p>
-              <div class="chip-row">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Tailwind</span>
-                <span>Vite</span>
-              </div>
-            </article>
-
-            <article class="skill-group accent">
-              <div class="skill-group-top">
-                <i data-lucide="server" class="skill-icon"></i>
-                <span>Backend & APIs</span>
-              </div>
-              <h4>Integração e regras de negócio</h4>
-              <p>
-                APIs, autenticação, rotas protegidas e comunicação entre
-                sistemas.
-              </p>
-              <div class="chip-row">
-                <span>Node.js</span>
-                <span>Express</span>
-                <span>JWT</span>
-                <span>REST</span>
-              </div>
-            </article>
-
-            <article class="skill-group">
-              <div class="skill-group-top">
-                <i data-lucide="brain" class="skill-icon"></i>
-                <span>Dados & Inteligência</span>
-              </div>
-              <h4>Análise e predição</h4>
-              <p>
-                Tratamento de dados, indicadores, modelos e leitura de risco.
-              </p>
-              <div class="chip-row">
-                <span>Python</span>
-                <span>SQL</span>
-                <span>Machine Learning</span>
-                <span>Streamlit</span>
-              </div>
-            </article>
-
-            <article class="skill-group">
-              <div class="skill-group-top">
-                <i data-lucide="layout-panel-top" class="skill-icon"></i>
-                <span>Análise & Produto</span>
-              </div>
-              <h4>Requisitos e decisão</h4>
-              <p>
-                Levantamento, arquitetura, UX, priorização e evolução do
-                produto.
-              </p>
-              <div class="chip-row">
-                <span>Requisitos</span>
-                <span>Arquitetura</span>
-                <span>UX</span>
-                <span>Produto</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="projects section" id="projetos">
-        <div class="section-label light reveal">
-          <i data-lucide="hash"></i> 02_trabalho-selecionado
-        </div>
-        <div class="projects-heading reveal">
-          <h2>
-            Projetos com<br /><span class="accent-text">problemas reais.</span>
-          </h2>
-          <p>
-            Uma seleção que mostra meu olhar técnico e analítico em diferentes
-            contextos.
-          </p>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card reveal" data-accent="#6ea8fe">
-            <div
-              class="project-preview project-preview--nr1"
-              aria-hidden="true"
-            >
-              <div class="preview-bar">
-                <span></span><span></span><span></span>
-                <strong>NR1 / complaint-form.tsx</strong>
-              </div>
-              <div class="preview-screen">
-                <div class="preview-main-card"></div>
-                <div class="preview-side-stack">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <span class="project-index">src/projects/01-nr1.ts</span>
-              <h3>NR1</h3>
-              <p class="project-problem">
-                Canal seguro de denúncias anônimas e gestão de riscos
-                ocupacionais em conformidade com a NR-1.
-              </p>
-
-              <div class="project-notes">
-                <div>
-                  <span>Problema</span>
-                  <p>
-                    Garantir relato anônimo, auditável e com trilha de apuração.
-                  </p>
-                </div>
-                <div>
-                  <span>O que eu fiz</span>
-                  <p>
-                    Desenhei fluxo, telas e integração entre formulário, painel
-                    e backend.
-                  </p>
-                </div>
-                <div>
-                  <span>Resultado</span>
-                  <p>
-                    Organizou o processo de relato com mais segurança e
-                    rastreabilidade.
-                  </p>
-                </div>
-              </div>
-
-              <div class="project-stack">
-                <span>React</span><span>TypeScript</span><span>Express</span>
-                <span>SQL Server</span><span>JWT</span>
-              </div>
-
-              <div class="project-actions">
-                <a
-                  class="button button-primary"
-                  href="https://github.com/francijrjr/NR-1#readme"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Ver detalhes
-                </a>
-                <a
-                  class="button button-secondary"
-                  href="https://github.com/francijrjr/NR-1"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-accent="#f0b364">
-            <div
-              class="project-preview project-preview--med"
-              aria-hidden="true"
-            >
-              <div class="preview-bar">
-                <span></span><span></span><span></span>
-                <strong>med-risk-predictor / dashboard.py</strong>
-              </div>
-              <div class="preview-screen">
-                <div class="preview-chart">
-                  <span style="height: 42%"></span>
-                  <span style="height: 78%"></span>
-                  <span style="height: 56%"></span>
-                  <span style="height: 88%"></span>
-                </div>
-                <div class="preview-mini-grid">
-                  <span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <span class="project-index"
-                >src/projects/02-med-risk-predictor.py</span
-              >
-              <h3>Med Risk Predictor</h3>
-              <p class="project-problem">
-                Previsão de consumo e risco de escassez de medicamentos para
-                apoiar a gestão pública em saúde.
-              </p>
-
-              <div class="project-notes">
-                <div>
-                  <span>Problema</span>
-                  <p>
-                    Antecipar déficit e priorizar medicamentos com base em
-                    dados.
-                  </p>
-                </div>
-                <div>
-                  <span>O que eu fiz</span>
-                  <p>
-                    Modelei ingestão, limpeza, métricas e visão de dashboard
-                    preditivo.
-                  </p>
-                </div>
-                <div>
-                  <span>Resultado</span>
-                  <p>
-                    Transformou dados brutos em leitura prática para tomada de
-                    decisão.
-                  </p>
-                </div>
-              </div>
-
-              <div class="project-stack">
-                <span>Python</span><span>Streamlit</span><span>Pandas</span>
-                <span>Scikit-learn</span><span>Plotly</span>
-              </div>
-
-              <div class="project-actions">
-                <a
-                  class="button button-primary"
-                  href="https://github.com/francijrjr/med-risk-predictor#readme"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Ver detalhes
-                </a>
-                <a
-                  class="button button-secondary"
-                  href="https://github.com/francijrjr/med-risk-predictor"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-accent="#7ee8a2">
-            <div
-              class="project-preview project-preview--mix"
-              aria-hidden="true"
-            >
-              <div class="preview-bar">
-                <span></span><span></span><span></span>
-                <strong>PodeMisturar? / resultados</strong>
-              </div>
-              <div class="preview-screen preview-screen-grid">
-                <div class="preview-card preview-card-wide"></div>
-                <div class="preview-card"></div>
-                <div class="preview-card preview-card-alert"></div>
-              </div>
-            </div>
-            <div class="project-content">
-              <span class="project-index"
-                >src/projects/03-pode-misturar.tsx</span
-              >
-              <h3>PodeMisturar?</h3>
-              <p class="project-problem">
-                Aplicação que consulta combinações de substâncias e comunica
-                riscos com uma interface direta e acessível.
-              </p>
-
-              <div class="project-notes">
-                <div>
-                  <span>Problema</span>
-                  <p>
-                    Explicar riscos químicos de forma rápida, clara e confiável.
-                  </p>
-                </div>
-                <div>
-                  <span>O que eu fiz</span>
-                  <p>
-                    Estruturei frontend modular, busca por substância, histórico
-                    e feedback.
-                  </p>
-                </div>
-                <div>
-                  <span>Resultado</span>
-                  <p>
-                    Melhorou a leitura dos riscos e a navegação entre consultas.
-                  </p>
-                </div>
-              </div>
-
-              <div class="project-stack">
-                <span>React</span><span>TypeScript</span><span>Tailwind</span>
-                <span>Node.js</span><span>Express</span>
-              </div>
-
-              <div class="project-actions">
-                <a
-                  class="button button-primary"
-                  href="https://github.com/francijrjr/PodeMisturar#readme"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Ver detalhes
-                </a>
-                <a
-                  class="button button-secondary"
-                  href="https://github.com/francijrjr/PodeMisturar"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-accent="#c9a6ff">
-            <div
-              class="project-preview project-preview--rooms"
-              aria-hidden="true"
-            >
-              <div class="preview-bar">
-                <span></span><span></span><span></span>
-                <strong>gerenciar-salas / painel</strong>
-              </div>
-              <div class="preview-screen preview-rooms">
-                <div class="preview-room-card preview-room-highlight"></div>
-                <div class="preview-room-card"></div>
-                <div class="preview-room-card"></div>
-                <div class="preview-room-meter"></div>
-              </div>
-            </div>
-            <div class="project-content">
-              <span class="project-index"
-                >src/projects/04-gerenciar-salas.js</span
-              >
-              <h3>Gerenciar Salas</h3>
-              <p class="project-problem">
-                Gestão de laboratórios com autenticação, relatórios em PDF e
-                monitoramento de temperatura em tempo real.
-              </p>
-
-              <div class="project-notes">
-                <div>
-                  <span>Problema</span>
-                  <p>
-                    Centralizar controle operacional e acompanhamento das salas.
-                  </p>
-                </div>
-                <div>
-                  <span>O que eu fiz</span>
-                  <p>
-                    Implementei autenticação, relatórios, WebSocket e
-                    organização do fluxo.
-                  </p>
-                </div>
-                <div>
-                  <span>Resultado</span>
-                  <p>
-                    Deixou a rotina mais auditável, simples e conectada ao uso
-                    real.
-                  </p>
-                </div>
-              </div>
-
-              <div class="project-stack">
-                <span>Node.js</span><span>MongoDB</span><span>Socket.IO</span>
-                <span>PDF</span><span>Realtime</span>
-              </div>
-
-              <div class="project-actions">
-                <a
-                  class="button button-primary"
-                  href="mailto:contato@fjsolution.com.br?subject=Acesso%20ao%20projeto%20Gerenciar%20Salas"
-                  rel="noreferrer"
-                >
-                  Solicitar acesso
-                </a>
-                <a
-                  class="button button-secondary"
-                  href="#contato"
-                  rel="noreferrer"
-                >
-                  Contato
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="process section" id="processo">
-        <div class="section-label reveal">
-          <i data-lucide="hash"></i> 03_metodo
-        </div>
-        <div class="process-layout">
-          <div class="process-intro reveal">
-            <h2>
-              Da pergunta<br />à <span class="accent-text">entrega.</span>
+        <section class="section about" id="sobre">
+          <header class="section-head reveal">
+            <span class="section-tag">01 / about</span>
+            <h2 data-i18n="about.heading">
+              Uma base técnica, um olhar de produto.
             </h2>
-            <p>
-              Um processo simples para reduzir incerteza e manter o projeto
-              conectado ao resultado.
+            <p data-i18n="about.subheading">
+              Meu trabalho combina execução, leitura de contexto e escolhas de
+              design que reduzem atrito para o usuário e para o time.
             </p>
+          </header>
+
+          <div class="about-grid">
+            <article class="profile-card reveal">
+              <div class="profile-copy">
+                <span class="role-pill" data-i18n="about.role"
+                  >Full Stack Developer</span
+                >
+                <h3>Francinilton Sobreira</h3>
+                <p data-i18n="about.body1">
+                  Atuo na ponte entre produto e implementação, transformando
+                  necessidades em fluxos claros, sistemas estáveis e interfaces
+                  legíveis.
+                </p>
+                <p data-i18n="about.body2">
+                  Hoje meu foco é entregar software que seja útil de verdade:
+                  bem estruturado, escalável e fácil de evoluir.
+                </p>
+
+                <div class="social-row" aria-label="Links principais">
+                  <a
+                    class="social-chip social-chip-primary"
+                    href="https://github.com/francijrjr"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i data-lucide="github"></i>
+                    <span data-i18n="about.links.github">GitHub</span>
+                  </a>
+                  <a
+                    class="social-chip"
+                    href="https://www.linkedin.com/in/francijrjr/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i data-lucide="linkedin"></i>
+                    <span data-i18n="about.links.linkedin">LinkedIn</span>
+                  </a>
+                  <a class="social-chip" href="mailto:frjuniorfrjr@gmail.com">
+                    <i data-lucide="mail"></i>
+                    <span data-i18n="about.links.email">E-mail</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="story-card reveal">
+              <div class="story-line">
+                <span>01</span>
+                <div>
+                  <strong data-i18n="about.story.one.title"
+                    >Foco em clareza</strong
+                  >
+                  <p data-i18n="about.story.one.copy">
+                    Cada tela precisa explicar o próximo passo sem esforço.
+                  </p>
+                </div>
+              </div>
+              <div class="story-line">
+                <span>02</span>
+                <div>
+                  <strong data-i18n="about.story.two.title"
+                    >Arquitetura prática</strong
+                  >
+                  <p data-i18n="about.story.two.copy">
+                    Escolhas técnicas simples o bastante para manter o ritmo e
+                    robustas o bastante para crescer.
+                  </p>
+                </div>
+              </div>
+              <div class="story-line">
+                <span>03</span>
+                <div>
+                  <strong data-i18n="about.story.three.title"
+                    >Entrega orientada a valor</strong
+                  >
+                  <p data-i18n="about.story.three.copy">
+                    O objetivo é sempre reduzir ruído e aumentar a confiança do
+                    time e do usuário.
+                  </p>
+                </div>
+              </div>
+
+              <div class="story-badges">
+                <span data-i18n="about.badges.one">React + TypeScript</span>
+                <span data-i18n="about.badges.two">Node.js + Express</span>
+                <span data-i18n="about.badges.three">Python + SQL</span>
+                <span data-i18n="about.badges.four">UX + Produto</span>
+              </div>
+            </article>
           </div>
-          <ol class="steps">
-            <li class="reveal">
-              <span class="step-node"><i data-lucide="search"></i></span>
-              <div>
-                <span class="step-tag">git checkout entender</span>
-                <h3>Entender</h3>
-                <p>
-                  Contexto, pessoas, regras e o problema que precisa ser
-                  resolvido.
-                </p>
-              </div>
-            </li>
-            <li class="reveal">
-              <span class="step-node"><i data-lucide="layout-grid"></i></span>
-              <div>
-                <span class="step-tag">git checkout estruturar</span>
-                <h3>Estruturar</h3>
-                <p>
-                  Requisitos, fluxos, dados e prioridades viram um plano
-                  possível.
-                </p>
-              </div>
-            </li>
-            <li class="reveal">
-              <span class="step-node"><i data-lucide="hammer"></i></span>
-              <div>
-                <span class="step-tag">git checkout construir</span>
-                <h3>Construir</h3>
-                <p>
-                  A solução ganha forma com código limpo, feedback e validação
-                  contínua.
-                </p>
-              </div>
-            </li>
-            <li class="reveal">
-              <span class="step-node"><i data-lucide="trending-up"></i></span>
-              <div>
-                <span class="step-tag">git merge --into main</span>
-                <h3>Evoluir</h3>
-                <p>
-                  Métricas e uso real orientam os próximos passos do produto.
-                </p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
 
-      <section class="contact section" id="contato">
-        <div class="contact-noise" aria-hidden="true"></div>
-        <div class="section-label light reveal">
-          <i data-lucide="hash"></i> 04_contato
-        </div>
+          <div class="skills-block reveal" id="habilidades">
+            <div class="skills-head">
+              <h3 data-i18n="skills.heading">
+                Habilidades organizadas por contexto
+              </h3>
+              <p data-i18n="skills.subheading">
+                Quatro grupos visuais para navegar rapidamente pelo que eu faço
+                melhor.
+              </p>
+            </div>
 
-        <div class="contact-layout">
-          <div class="contact-copy-panel reveal">
-            <p class="eyebrow">
-              <i data-lucide="terminal"></i> Tem um desafio em mente?
+            <div class="skills-grid" aria-label="Grupos de habilidades">
+              <article class="skill-card">
+                <div class="skill-top">
+                  <i data-lucide="monitor-smartphone"></i>
+                  <span>01</span>
+                </div>
+                <h4 data-i18n="skills.frontend.title">Frontend</h4>
+                <p data-i18n="skills.frontend.copy">
+                  Interfaces responsivas, composição de componentes, performance
+                  e consistência visual.
+                </p>
+                <div class="pill-row">
+                  <span>React</span><span>TypeScript</span><span>Tailwind</span
+                  ><span>Vite</span>
+                </div>
+              </article>
+
+              <article class="skill-card accent">
+                <div class="skill-top">
+                  <i data-lucide="server"></i>
+                  <span>02</span>
+                </div>
+                <h4 data-i18n="skills.backend.title">Backend & APIs</h4>
+                <p data-i18n="skills.backend.copy">
+                  Camadas de regra de negócio, autenticação, serviços REST e
+                  integração entre sistemas.
+                </p>
+                <div class="pill-row">
+                  <span>Node.js</span><span>Express</span><span>JWT</span
+                  ><span>REST</span>
+                </div>
+              </article>
+
+              <article class="skill-card">
+                <div class="skill-top">
+                  <i data-lucide="brain"></i>
+                  <span>03</span>
+                </div>
+                <h4 data-i18n="skills.data.title">Dados & ML</h4>
+                <p data-i18n="skills.data.copy">
+                  Leitura de dados, indicadores, modelos preditivos e dashboards
+                  para apoiar decisão.
+                </p>
+                <div class="pill-row">
+                  <span>Python</span><span>SQL</span><span>ML</span
+                  ><span>Streamlit</span>
+                </div>
+              </article>
+
+              <article class="skill-card">
+                <div class="skill-top">
+                  <i data-lucide="compass"></i>
+                  <span>04</span>
+                </div>
+                <h4 data-i18n="skills.product.title">Análise & Produto</h4>
+                <p data-i18n="skills.product.copy">
+                  Levantamento de requisitos, desenho de fluxo, priorização e
+                  arquitetura de solução.
+                </p>
+                <div class="pill-row">
+                  <span>Requisitos</span><span>Arquitetura</span><span>UX</span
+                  ><span>Produto</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section projects" id="projetos">
+          <header class="section-head reveal">
+            <span class="section-tag">02 / projects</span>
+            <h2 data-i18n="projects.heading">
+              Projetos que mostram problema, solução e resultado.
+            </h2>
+            <p data-i18n="projects.subheading">
+              Sem demo falsa, sem promessa vazia. Cada card comunica o contexto
+              real e o que foi entregue.
             </p>
-            <h2>VAMOS TIRAR<br /><span class="outline">DO PAPEL.</span></h2>
-            <p class="contact-copy">
-              Conte brevemente o que você precisa. Eu respondo pelo WhatsApp e a
-              gente descobre o melhor caminho juntos.
-            </p>
+          </header>
 
-            <div class="contact-actions">
+          <div class="projects-grid">
+            <article class="project-card accent-blue reveal">
+              <div class="project-copy">
+                <span class="project-kicker">NR1</span>
+                <h3 data-i18n="projects.nr1.title">
+                  Canal seguro de denúncias e gestão de riscos.
+                </h3>
+                <p>
+                  <strong data-i18n="projects.problem">Problema</strong>
+                  <span data-i18n="projects.nr1.problem"
+                    >Criar um fluxo anônimo, auditável e organizado para relatos
+                    ocupacionais.</span
+                  >
+                </p>
+                <p>
+                  <strong data-i18n="projects.solution">Solução</strong>
+                  <span data-i18n="projects.nr1.solution"
+                    >Estruturação de formulário, painel administrativo, trilha
+                    de auditoria e experiência clara para quem reporta.</span
+                  >
+                </p>
+                <p>
+                  <strong data-i18n="projects.result">Resultado</strong>
+                  <span data-i18n="projects.nr1.result"
+                    >Processo mais confiável, rastreável e compatível com o uso
+                    real do sistema.</span
+                  >
+                </p>
+                <div class="stack-row">
+                  <span>React</span><span>TypeScript</span><span>Express</span
+                  ><span>SQL Server</span><span>JWT</span>
+                </div>
+                <div class="project-actions">
+                  <a
+                    class="button button-primary"
+                    href="https://github.com/francijrjr/NR-1"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-i18n="projects.code"
+                    >GitHub</a
+                  >
+                  <a
+                    class="button button-secondary"
+                    href="https://github.com/francijrjr/NR-1#readme"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-i18n="projects.readme"
+                    >Notas</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card accent-amber reveal">
+              <div class="project-copy">
+                <span class="project-kicker">Med Risk Predictor</span>
+                <h3 data-i18n="projects.med.title">
+                  Predição de escassez de medicamentos.
+                </h3>
+                <p>
+                  <strong data-i18n="projects.problem">Problema</strong>
+                  <span data-i18n="projects.med.problem"
+                    >Antecipar consumo e risco para apoiar a gestão pública de
+                    saúde.</span
+                  >
+                </p>
+                <p>
+                  <strong data-i18n="projects.solution">Solução</strong>
+                  <span data-i18n="projects.med.solution"
+                    >Pipeline de dados, classificação de risco e dashboard com
+                    leituras rápidas para decisão.</span
+                  >
+                </p>
+                <p>
+                  <strong data-i18n="projects.result">Resultado</strong>
+                  <span data-i18n="projects.med.result"
+                    >Dados brutos viraram apoio prático para análise e
+                    priorização.</span
+                  >
+                </p>
+                <div class="stack-row">
+                  <span>Python</span><span>Streamlit</span><span>Pandas</span
+                  ><span>Scikit-learn</span><span>Plotly</span>
+                </div>
+                <div class="project-actions">
+                  <a
+                    class="button button-primary"
+                    href="https://github.com/francijrjr/med-risk-predictor"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-i18n="projects.code"
+                    >GitHub</a
+                  >
+                  <a
+                    class="button button-secondary"
+                    href="https://github.com/francijrjr/med-risk-predictor#readme"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-i18n="projects.readme"
+                    >Notas</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card accent-green reveal">
+              <div class="project-copy">
+                <span class="project-kicker">PodeMisturar?</span>
+                <h3 data-i18n="projects.mix.title">
+                  Verificação de misturas químicas com leitura instantânea.
+                </h3>
+                <p>
+                  <strong data-i18n="projects.problem">Problema</strong>
+                  <span data-i18n="projects.mix.problem"
+                    >Explicar riscos de combinações químicas com rapidez e
+                    linguagem acessível.</span
+                  >
+                </p>
+                <p>
+                  <strong data-i18n="projects.solution">Solução</strong>
+                  <span data-i18n="projects.mix.solution"
+                    >Busca por substância, histórico, alertas visuais e
+                    interface modular para navegação simples.</span
+                  >
+                </p>
+                <p>
+                  <strong data-i18n="projects.result">Resultado</strong>
+                  <span data-i18n="projects.mix.result"
+                    >Um front-end direto, legível e focado em consulta
+                    segura.</span
+                  >
+                </p>
+                <div class="stack-row">
+                  <span>React</span><span>TypeScript</span><span>Tailwind</span
+                  ><span>Node.js</span><span>Express</span>
+                </div>
+                <div class="project-actions">
+                  <a
+                    class="button button-primary"
+                    href="https://github.com/francijrjr/PodeMisturar"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-i18n="projects.code"
+                    >GitHub</a
+                  >
+                  <a
+                    class="button button-secondary"
+                    href="https://github.com/francijrjr/PodeMisturar#readme"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-i18n="projects.readme"
+                    >Notas</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card accent-violet reveal">
+              <div class="project-copy">
+                <span class="project-kicker">Gerenciar Salas</span>
+                <h3 data-i18n="projects.rooms.title">
+                  Controle de salas, autenticação e relatórios em tempo real.
+                </h3>
+                <p>
+                  <strong data-i18n="projects.problem">Problema</strong>
+                  <span data-i18n="projects.rooms.problem"
+                    >Organizar a gestão de ambientes com acesso, monitoramento e
+                    controle operacional.</span
+                  >
+                </p>
+                <p>
+                  <strong data-i18n="projects.solution">Solução</strong>
+                  <span data-i18n="projects.rooms.solution"
+                    >Fluxos de login, relatórios em PDF e acompanhamento de
+                    temperatura com integração em tempo real.</span
+                  >
+                </p>
+                <p>
+                  <strong data-i18n="projects.result">Resultado</strong>
+                  <span data-i18n="projects.rooms.result"
+                    >A rotina ficou mais rastreável, visual e conectada ao uso
+                    do dia a dia.</span
+                  >
+                </p>
+                <div class="stack-row">
+                  <span>Node.js</span><span>MongoDB</span><span>Socket.IO</span
+                  ><span>PDF</span><span>Realtime</span>
+                </div>
+                <div class="project-actions">
+                  <a
+                    class="button button-primary"
+                    href="#contato"
+                    data-i18n="projects.access"
+                    >Solicitar acesso</a
+                  >
+                  <a
+                    class="button button-secondary"
+                    href="#contato"
+                    data-i18n="projects.contact"
+                    >Contato</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section process" id="processo">
+          <header class="section-head reveal">
+            <span class="section-tag">03 / process</span>
+            <h2 data-i18n="process.heading">
+              Um processo simples para reduzir ruído e aumentar entrega.
+            </h2>
+            <p data-i18n="process.subheading">
+              Da descoberta ao ajuste final, com foco em decisões visíveis e
+              comunicação direta.
+            </p>
+          </header>
+
+          <div class="process-grid">
+            <article class="process-step reveal">
+              <span class="process-index">01</span>
+              <h3 data-i18n="process.one.title">Entender</h3>
+              <p data-i18n="process.one.copy">
+                Contexto, restrições, público e problema real antes de escrever
+                a primeira linha.
+              </p>
+              <span class="process-tag">/ discovery</span>
+            </article>
+            <article class="process-step reveal">
+              <span class="process-index">02</span>
+              <h3 data-i18n="process.two.title">Estruturar</h3>
+              <p data-i18n="process.two.copy">
+                Fluxos, arquitetura e prioridade viram um plano enxuto e
+                executável.
+              </p>
+              <span class="process-tag">/ architecture</span>
+            </article>
+            <article class="process-step reveal">
+              <span class="process-index">03</span>
+              <h3 data-i18n="process.three.title">Construir</h3>
+              <p data-i18n="process.three.copy">
+                Entrega em blocos curtos, com validação visual e técnica ao
+                longo do caminho.
+              </p>
+              <span class="process-tag">/ build</span>
+            </article>
+            <article class="process-step reveal">
+              <span class="process-index">04</span>
+              <h3 data-i18n="process.four.title">Evoluir</h3>
+              <p data-i18n="process.four.copy">
+                Uso real, ajustes e aprendizado contínuo para manter a solução
+                útil.
+              </p>
+              <span class="process-tag">/ iterate</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="section contact" id="contato">
+          <div class="contact-glow" aria-hidden="true"></div>
+          <header class="section-head reveal">
+            <span class="section-tag">04 / contact</span>
+            <h2 data-i18n="contact.heading">Vamos tirar do papel.</h2>
+            <p data-i18n="contact.subheading">
+              Se você quer produto, integração ou uma solução mais clara, eu
+              respondo no WhatsApp, por e-mail ou LinkedIn.
+            </p>
+          </header>
+
+          <div class="contact-layout">
+            <div class="contact-card reveal">
               <a
-                class="whatsapp-button"
+                class="whatsapp-cta"
                 data-whatsapp
                 href="#"
-                aria-label="Conversar com Francinilton no WhatsApp"
+                aria-label="Conversar no WhatsApp"
               >
                 <span class="whatsapp-icon" aria-hidden="true">
-                  <svg viewBox="0 0 32 32">
+                  <svg viewBox="0 0 32 32" role="img" aria-label="WhatsApp">
                     <path
                       d="M16.04 3C9.4 3 4 8.2 4 14.6c0 2.3.7 4.5 2 6.4L4.7 27l6.2-1.6c1.6.9 3.4 1.3 5.2 1.3 6.6 0 12-5.2 12-11.6S22.7 3 16 3Zm7 16.5c-.3.8-1.7 1.5-2.4 1.6-.6.1-1.4.2-2.3-.1-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.3-6.3-5.5-.2-.3-1.5-1.9-1.5-3.7 0-1.8 1-2.7 1.3-3.1.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.4 1.1 2.6.1.2.2.5 0 .8-.1.3-.2.5-.4.7l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.5 1.4 1.2 2.6 1.6 3 1.8.4.2.6.1.8-.1.2-.3.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2.1 1 2.5 1.2.4.2.6.3.7.5.1.2.1 1-.2 1.8Z"
                     />
                   </svg>
                 </span>
                 <span>
-                  <small>$ ./contato.sh --whatsapp</small>
-                  Chamar no WhatsApp
+                  <small data-i18n="contact.whatsapp.label"
+                    >Canal principal</small
+                  >
+                  <strong data-i18n="contact.whatsapp.cta"
+                    >Chamar no WhatsApp</strong
+                  >
                 </span>
-                <i data-lucide="arrow-up-right" class="button-arrow"></i>
+                <i data-lucide="arrow-up-right"></i>
               </a>
 
-              <div class="contact-links" aria-label="Canais diretos">
-                <a class="contact-link" href="mailto:contato@fjsolution.com.br">
+              <div class="contact-links">
+                <a class="contact-link" href="mailto:frjuniorfrjr@gmail.com">
                   <i data-lucide="mail"></i>
                   <span>
-                    <small>E-mail</small>
-                    contato@fjsolution.com.br
+                    <small data-i18n="contact.email.label">E-mail</small>
+                    <strong>frjuniorfrjr@gmail.com</strong>
                   </span>
                 </a>
                 <a
@@ -707,102 +671,104 @@
                 >
                   <i data-lucide="linkedin"></i>
                   <span>
-                    <small>LinkedIn</small>
-                    /in/francijrjr
+                    <small data-i18n="contact.linkedin.label">LinkedIn</small>
+                    <strong>/in/francijrjr</strong>
                   </span>
                 </a>
               </div>
             </div>
 
-            <p class="whatsapp-note" data-whatsapp-note hidden>
-              Adicione seu número em script.js para ativar este botão.
-            </p>
+            <form class="contact-form reveal" data-contact-form>
+              <div class="form-grid">
+                <label>
+                  <span data-i18n="form.name.label">Nome</span>
+                  <input
+                    type="text"
+                    name="name"
+                    data-i18n-placeholder="form.name.placeholder"
+                    placeholder="Seu nome"
+                  />
+                </label>
+                <label>
+                  <span data-i18n="form.email.label">E-mail</span>
+                  <input
+                    type="email"
+                    name="email"
+                    data-i18n-placeholder="form.email.placeholder"
+                    placeholder="voce@empresa.com"
+                  />
+                </label>
+              </div>
+
+              <label>
+                <span data-i18n="form.message.label">Mensagem</span>
+                <textarea
+                  name="message"
+                  rows="6"
+                  data-i18n-placeholder="form.message.placeholder"
+                  placeholder="Explique brevemente o que você precisa."
+                ></textarea>
+              </label>
+
+              <button class="form-submit" type="submit">
+                <i data-lucide="send"></i>
+                <span data-i18n="form.submit"
+                  >Preparar mensagem no WhatsApp</span
+                >
+              </button>
+
+              <p class="form-note" data-i18n="form.note">
+                Sem backend: o formulário prepara a mensagem e abre o WhatsApp
+                com seus dados.
+              </p>
+            </form>
           </div>
 
-          <form class="contact-form reveal" data-contact-form>
-            <div class="form-grid">
-              <label>
-                <span>Nome</span>
-                <input type="text" name="name" placeholder="Seu nome" />
-              </label>
-              <label>
-                <span>E-mail</span>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="voce@empresa.com"
-                />
-              </label>
+          <footer class="footerbar">
+            <div class="footer-left">
+              <span class="footer-pill"
+                ><i data-lucide="git-branch"></i><span>main</span></span
+              >
+              <span class="footer-copy"
+                >© <span data-year></span> Francinilton Sobreira</span
+              >
             </div>
 
-            <label>
-              <span>Mensagem</span>
-              <textarea
-                name="message"
-                rows="6"
-                placeholder="Explique brevemente o desafio, contexto e prazo desejado."
-              ></textarea>
-            </label>
+            <div class="footer-center">
+              <div class="counter-embed" aria-label="Contador de visitantes" aria-live="polite">
+                <div class="counter-copy">
+                  <span class="counter-label" data-i18n="footer.counter"
+                    >Visitantes</span
+                  >
+                  <strong data-i18n="footer.counterTitle">Acessos ao portfólio</strong>
+                </div>
 
-            <button class="form-submit" type="submit">
-              <i data-lucide="send"></i>
-              Preparar mensagem no WhatsApp
-            </button>
-
-            <p class="form-hint">
-              Sem backend: o formulário prepara a mensagem e abre o WhatsApp.
-            </p>
-          </form>
-        </div>
-
-        <footer class="statusbar">
-          <div class="statusbar-left">
-            <span class="seg seg-strong">
-              <i data-lucide="git-branch"></i>main
-            </span>
-            <span class="seg">
-              © <span data-year></span> Francinilton Sobreira
-            </span>
-          </div>
-
-          <div class="statusbar-center">
-            <div class="counter-embed" aria-label="Contador de visitantes">
-              <span class="counter-caption">
-                <i data-lucide="users"></i>
-                <span>Visitantes</span>
-              </span>
-              <img
-                src="https://speedcounter.net/counter-v2/4831030-total-brightgreen.svg"
-                alt="Visitantes totais"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-              <img
-                src="https://speedcounter.net/counter-v2/4831030-online-brightgreen.svg"
-                alt="Visitantes online"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
+                <div class="counter-track">
+                  <div class="counter-chip">
+                    <span data-i18n="footer.total">Total</span>
+                    <strong class="counter-number" data-visitor-total>0</strong>
+                  </div>
+                  <div class="counter-chip is-live">
+                    <span data-i18n="footer.online"><i aria-hidden="true"></i> Online</span>
+                    <strong class="counter-number" data-visitor-online>1</strong>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div class="statusbar-right">
-            <a
-              class="seg"
-              href="https://github.com/francijrjr"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i data-lucide="github"></i>GitHub
-            </a>
-            <a class="seg" href="#inicio">
-              <i data-lucide="arrow-up"></i>Topo
-            </a>
-            <span class="seg">UTF-8</span>
-          </div>
-        </footer>
-      </section>
-    </main>
+            <div class="footer-right">
+              <a
+                href="https://github.com/francijrjr"
+                target="_blank"
+                rel="noreferrer"
+                ><i data-lucide="github"></i>GitHub</a
+              >
+              <a href="#inicio"><i data-lucide="arrow-up"></i>Topo</a>
+            </div>
+          </footer>
+        </section>
+      </main>
+    </div>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script type="module" src="script.js"></script>
