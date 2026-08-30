@@ -2,17 +2,9 @@
 const WHATSAPP_NUMBER = "5588921745890";
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const totalVisitsEl = document.querySelector("[data-total-visits]");
-const onlineVisitorsEl = document.querySelector("[data-online-visitors]");
 const yearEl = document.querySelector("[data-year]");
 const menuButton = document.querySelector(".menu-toggle");
 const menu = document.querySelector("#menu");
-
-const VISITOR_TOTAL_KEY = "portfolio-total-visits-v1";
-const SESSION_VISITED_KEY = "portfolio-session-seen-v1";
-const PRESENCE_KEY = "portfolio-presence-v1";
-const PRESENCE_TTL = 12000;
-const PRESENCE_INTERVAL = 5000;
 
 if (yearEl) {
   yearEl.textContent = String(new Date().getFullYear());
@@ -137,113 +129,6 @@ function initSkillsTyper() {
   tick();
 }
 
-function setCounterValue(element, value) {
-  if (!element) return;
-  element.textContent = new Intl.NumberFormat("pt-BR").format(value);
-}
-
-function readPresenceMap() {
-  try {
-    const raw = localStorage.getItem(PRESENCE_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch {
-    return {};
-  }
-}
-
-function writePresenceMap(map) {
-  try {
-    localStorage.setItem(PRESENCE_KEY, JSON.stringify(map));
-  } catch {
-    // Ignore storage errors.
-  }
-}
-
-function getTabId() {
-  const key = "portfolio-tab-id";
-  const existing = sessionStorage.getItem(key);
-  if (existing) return existing;
-
-  const generated = `tab-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-  sessionStorage.setItem(key, generated);
-  return generated;
-}
-
-function updateOnlineCount() {
-  if (!onlineVisitorsEl) return;
-
-  const now = Date.now();
-  const entries = Object.entries(readPresenceMap());
-  const filtered = entries.filter(([, timestamp]) => now - Number(timestamp) <= PRESENCE_TTL);
-  const reduced = Object.fromEntries(filtered);
-
-  writePresenceMap(reduced);
-  setCounterValue(onlineVisitorsEl, Math.max(1, filtered.length));
-}
-
-function initPresenceTracker() {
-  if (!onlineVisitorsEl) return;
-
-  const tabId = getTabId();
-
-  const ping = () => {
-    const map = readPresenceMap();
-    map[tabId] = Date.now();
-    writePresenceMap(map);
-    updateOnlineCount();
-  };
-
-  ping();
-  const intervalId = window.setInterval(ping, PRESENCE_INTERVAL);
-
-  const cleanup = () => {
-    const map = readPresenceMap();
-    delete map[tabId];
-    writePresenceMap(map);
-    updateOnlineCount();
-    window.clearInterval(intervalId);
-  };
-
-  window.addEventListener("pagehide", cleanup, { once: true });
-  window.addEventListener("beforeunload", cleanup, { once: true });
-  window.addEventListener("storage", updateOnlineCount);
-
-  if ("BroadcastChannel" in window) {
-    const channel = new BroadcastChannel("portfolio-presence");
-    channel.onmessage = () => ping();
-    window.addEventListener("pagehide", () => channel.close(), { once: true });
-  }
-}
-
-async function initVisitorTotals() {
-  if (!totalVisitsEl) return;
-
-  try {
-    const response = await fetch("https://api.countapi.xyz/hit/fjsolution-portfolio/visits");
-    if (!response.ok) throw new Error("countapi failed");
-
-    const data = await response.json();
-    setCounterValue(totalVisitsEl, Number(data.value) || 0);
-    return;
-  } catch {
-    let total = Number(localStorage.getItem(VISITOR_TOTAL_KEY) || "0");
-    const alreadyCounted = sessionStorage.getItem(SESSION_VISITED_KEY) === "1";
-
-    if (!alreadyCounted) {
-      total += 1;
-      sessionStorage.setItem(SESSION_VISITED_KEY, "1");
-
-      try {
-        localStorage.setItem(VISITOR_TOTAL_KEY, String(total));
-      } catch {
-        // Ignore storage errors.
-      }
-    }
-
-    setCounterValue(totalVisitsEl, total);
-  }
-}
-
 function initContactForm() {
   const form = document.querySelector("[data-contact-form]");
   if (!form) return;
@@ -334,8 +219,6 @@ async function initMotion() {
 
 initSkillsTyper();
 initContactForm();
-initPresenceTracker();
-initVisitorTotals();
 initMotion();
 
 if (window.lucide) {

@@ -815,14 +815,19 @@ nav a:focus-visible::after {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  background: var(--blue);
-  color: var(--bg);
+  background: rgba(13, 17, 23, 0.98);
+  color: var(--paper);
   font: 500 0.68rem var(--font-mono);
+  border-top: 1px solid var(--border);
 }
 .statusbar-left,
+.statusbar-center,
 .statusbar-right {
   display: flex;
   align-items: stretch;
+}
+.statusbar-center {
+  justify-content: center;
 }
 .seg {
   display: flex;
@@ -832,14 +837,46 @@ nav a:focus-visible::after {
   white-space: nowrap;
 }
 .seg-strong {
-  background: rgba(10, 13, 18, 0.16);
+  background: rgba(110, 168, 254, 0.08);
   font-weight: 700;
 }
 .statusbar a.seg {
   transition: background 0.2s;
 }
 .statusbar a.seg:hover {
-  background: rgba(10, 13, 18, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.counter-embed {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.85rem;
+  margin: 0.25rem 0;
+  border-radius: 999px;
+  border: 1px solid rgba(228, 231, 236, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.counter-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--dim);
+  font: 400 0.66rem var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.counter-caption [data-lucide] {
+  color: var(--blue);
+}
+
+.counter-embed img {
+  display: block;
+  height: 18px;
+  width: auto;
+  filter: drop-shadow(0 0 0 transparent);
 }
 
 .reveal {
@@ -942,6 +979,7 @@ nav a:focus-visible::after {
     flex-direction: column;
   }
   .statusbar-left,
+  .statusbar-center,
   .statusbar-right {
     flex-wrap: wrap;
   }
@@ -1860,5 +1898,10 @@ nav a:focus-visible::after {
   .statusbar-center,
   .statusbar-right {
     width: 100%;
+  }
+
+  .counter-embed {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
