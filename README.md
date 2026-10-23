@@ -37,9 +37,10 @@ Sempre execute o build depois de editar `script.js` ou `src/`.
 - `src/hero-rotator.jsx`: alterna chamada, título e descrição juntos a cada 7 segundos,
   com controles para pausar e avançar. A segunda frase do título aparece em azul.
 - `data-text-effect="heading"`: entrada dos títulos de seção ao entrar na tela.
-- Os títulos das seções animam uma vez. A apresentação pausa ao receber foco,
-  durante hover, fora da tela ou em uma aba oculta. Com movimento reduzido, a
-  troca é manual. O espaço reservado evita deslocar os botões entre mensagens.
+- Os títulos das seções animam uma vez. A apresentação alterna automaticamente,
+  inclusive com o mouse sobre o texto ou foco nos controles. Pausa pelo botão
+  Pausar, fora da tela ou em uma aba oculta. Com movimento reduzido, os textos
+  continuam alternando sem animação. O espaço reservado evita deslocar os botões entre mensagens.
   Os textos continuam no HTML inicial para leitura sem JavaScript e indexação.
 
 Origem: [React Bits, revisão e12c221](https://github.com/DavidHDev/react-bits/tree/e12c22192ac7b4b452c5e2feb9b586d74765d696).

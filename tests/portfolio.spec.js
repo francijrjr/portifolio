@@ -91,30 +91,32 @@ test('hero rotates all three texts, pauses, resumes, and resets the language', a
   await page.goto('/');
   await expect(page.locator('[data-rotation-next]')).toBeVisible();
   await expect(page.locator('h1 .hero-text-active [aria-hidden]').first()).toHaveCSS('opacity', '1');
+  await page.locator('h1').hover();
   await page.clock.fastForward(7200);
   await expect(page.locator('.hero-slide-count')).toHaveText('02 / 04');
   await expect(page.locator('.eyebrow .hero-text-active')).toContainText('Interfaces feitas para pessoas');
   await expect(page.locator('h1 .hero-text-active')).toContainText('Menos atrito na tela.');
   await expect(page.locator('.hero-text .hero-text-active')).toContainText('Crio interfaces responsivas');
   await page.locator('[data-rotation-pause]').click();
-  await page.locator('[data-rotation-pause]').blur();
-  await page.mouse.move(0, 0);
   await page.clock.fastForward(15000);
   await expect(page.locator('.hero-slide-count')).toHaveText('02 / 04');
   await page.locator('[data-rotation-pause]').click();
-  await page.locator('[data-rotation-pause]').blur();
-  await page.mouse.move(0, 0);
+  await expect(page.locator('[data-rotation-pause]')).toBeFocused();
   await page.clock.fastForward(7200);
   await expect(page.locator('.hero-slide-count')).toHaveText('03 / 04');
+  await page.clock.fastForward(7200);
+  await expect(page.locator('.hero-slide-count')).toHaveText('04 / 04');
+  await page.clock.fastForward(7200);
+  await expect(page.locator('.hero-slide-count')).toHaveText('01 / 04');
   await page.locator('[data-lang-btn="en"]').click();
   await expect(page.locator('.hero-slide-count')).toHaveText('01 / 04');
   await expect(page.locator('h1 .hero-text-active')).toContainText('Code that understands');
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await expect(page.locator('[data-rotation-pause]')).toHaveCount(0);
-  await page.clock.fastForward(15000);
-  await expect(page.locator('.hero-slide-count')).toHaveText('01 / 04');
-  await page.getByRole('button', { name: 'Next message' }).click();
+  await expect(page.locator('h1 .hero-text-active [aria-hidden]')).toHaveCount(0);
+  await page.clock.fastForward(7200);
   await expect(page.locator('.hero-slide-count')).toHaveText('02 / 04');
+  await page.getByRole('button', { name: 'Next message' }).click();
+  await expect(page.locator('.hero-slide-count')).toHaveText('03 / 04');
 });
 
 for (const width of [320, 390, 768, 1440]) {
@@ -125,6 +127,7 @@ for (const width of [320, 390, 768, 1440]) {
     await page.evaluate(() => document.fonts.ready);
     for (const language of ['pt', 'en', 'es']) {
       await page.locator(`[data-lang-btn="${language}"]`).click();
+      await page.locator('[data-rotation-pause]').click();
       const initial = await page.locator('.hero-actions').boundingBox();
       for (let slide = 0; slide < 4; slide++) {
         await expect(page.locator('.hero-slide-count')).toHaveText(`0${slide + 1} / 04`);

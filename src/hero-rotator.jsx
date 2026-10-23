@@ -30,10 +30,8 @@ function HeroRotator({ language }) {
   const labels = rotationLabels[language];
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [interacting, setInteracting] = useState(false);
-  const [focused, setFocused] = useState(false);
   const [visible, setVisible] = useState(!document.hidden);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(!('IntersectionObserver' in window));
   const staticText = useStaticText();
   const container = useRef(null);
 
@@ -51,19 +49,15 @@ function HeroRotator({ language }) {
   }, []);
 
   useEffect(() => {
-    if (staticText || paused || interacting || focused || !visible || !inView) return;
+    if (paused || !visible || !inView) return;
     const timer = setTimeout(() => setIndex(current => (current + 1) % slides.length), ROTATION_INTERVAL);
     return () => clearTimeout(timer);
-  }, [index, paused, interacting, focused, visible, inView, staticText, slides.length]);
+  }, [index, paused, visible, inView, slides.length]);
 
   return <div
     ref={container}
     className="hero-rotation"
     aria-live="off"
-    onMouseEnter={() => setInteracting(true)}
-    onMouseLeave={() => setInteracting(false)}
-    onFocus={() => setFocused(true)}
-    onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}
   >
     <p className="eyebrow">
       <span aria-hidden="true">›_</span>
@@ -79,9 +73,9 @@ function HeroRotator({ language }) {
     </p>
     <div className="hero-rotation-controls" role="group" aria-label={labels.controls}>
       <span className="hero-slide-count">{String(index + 1).padStart(2, '0')} <span>/ 04</span></span>
-      {!staticText && <button type="button" onClick={() => setPaused(value => !value)} aria-pressed={paused} data-rotation-pause>
+      <button type="button" onClick={() => setPaused(value => !value)} aria-pressed={paused} data-rotation-pause>
         <span aria-hidden="true">{paused ? '▷' : 'Ⅱ'}</span> {paused ? labels.play : labels.pause}
-      </button>}
+      </button>
       <button type="button" onClick={() => setIndex(current => (current + 1) % slides.length)} aria-label={labels.next} data-rotation-next>
         <span aria-hidden="true">→</span>
       </button>
