@@ -33,13 +33,15 @@ Sempre execute o build depois de editar `script.js` ou `src/`.
   instalação manual, com a propriedade `as` adicionada para preservar HTML semântico.
 - `src/text-effects.jsx`: integração dos títulos, troca de idioma e alternativa
   estática para movimento reduzido ou navegadores sem IntersectionObserver.
-- `src/hero-slides.js`: mensagens de apresentação em PT, EN e ES.
-- `src/hero-rotator.jsx`: alterna chamada, título e descrição juntos a cada 7 segundos,
-  com controles para pausar e avançar. A segunda frase do título aparece em azul.
+- `src/hero-slides.js`: mensagens e variações de palavras em PT, EN e ES.
+- `src/hero-rotator.jsx`: troca palavras do título a cada 3,2 segundos, preservando
+  as palavras em comum. Depois de três versões (9,6 segundos), troca chamada,
+  título e descrição. O ciclo é automático, sem contador ou controles visíveis.
+  A segunda frase do título aparece em azul.
 - `data-text-effect="heading"`: entrada dos títulos de seção ao entrar na tela.
 - Os títulos das seções animam uma vez. A apresentação alterna automaticamente,
-  inclusive com o mouse sobre o texto ou foco nos controles. Pausa pelo botão
-  Pausar, fora da tela ou em uma aba oculta. Com movimento reduzido, os textos
+  inclusive com o mouse sobre o texto. Pausa fora da tela ou em uma aba oculta.
+  Com movimento reduzido, os textos
   continuam alternando sem animação. O espaço reservado evita deslocar os botões entre mensagens.
   Os textos continuam no HTML inicial para leitura sem JavaScript e indexação.
 

@@ -53,8 +53,24 @@ export const heroSlides = {
   ],
 };
 
-export const rotationLabels = {
-  pt: { pause: 'Pausar', play: 'Continuar', next: 'Próxima mensagem', controls: 'Mensagens de apresentação' },
-  en: { pause: 'Pause', play: 'Resume', next: 'Next message', controls: 'Introduction messages' },
-  es: { pause: 'Pausar', play: 'Continuar', next: 'Siguiente mensaje', controls: 'Mensajes de presentación' },
+// Two word-level variations follow each original title before the next message.
+export const heroTitleVariants = {
+  pt: [
+    ['Código que simplifica o negócio.<br />Decisões que viram soluções.', 'Código que transforma o negócio.<br />Decisões que viram resultados.'],
+    ['Menos ruído na tela.<br />Mais clareza em cada clique.', 'Menos esforço na tela.<br />Mais impacto em cada clique.'],
+    ['Sistemas integrados.<br />Soluções que crescem.', 'Sistemas confiáveis.<br />Soluções que duram.'],
+    ['Informação com clareza.<br />Decisões com confiança.', 'Informação com propósito.<br />Decisões com impacto.'],
+  ],
+  en: [
+    ['Code that simplifies the business.<br />Decisions that become solutions.', 'Code that transforms the business.<br />Decisions that become results.'],
+    ['Less noise on screen.<br />More clarity in every click.', 'Less effort on screen.<br />More impact in every click.'],
+    ['Integrated systems.<br />Solutions that grow.', 'Reliable systems.<br />Solutions that last.'],
+    ['Information with clarity.<br />Decisions with confidence.', 'Information with purpose.<br />Decisions with impact.'],
+  ],
+  es: [
+    ['Código que simplifica el negocio.<br />Decisiones que se vuelven soluciones.', 'Código que transforma el negocio.<br />Decisiones que se vuelven resultados.'],
+    ['Menos ruido en pantalla.<br />Más claridad en cada clic.', 'Menos esfuerzo en pantalla.<br />Más impacto en cada clic.'],
+    ['Sistemas integrados.<br />Soluciones que crecen.', 'Sistemas confiables.<br />Soluciones que perduran.'],
+    ['Información con claridad.<br />Decisiones con confianza.', 'Información con propósito.<br />Decisiones con impacto.'],
+  ],
 };

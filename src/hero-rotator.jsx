@@ -1,10 +1,32 @@
 import { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { motion } from 'motion/react';
 import { translations } from '../script.js';
 import { TextLines, useStaticText } from './text-effects.jsx';
-import { heroSlides, rotationLabels } from './hero-slides.js';
+import { heroSlides, heroTitleVariants } from './hero-slides.js';
 
-const ROTATION_INTERVAL = 7000;
+const WORD_INTERVAL = 3200;
+const VARIATIONS_PER_MESSAGE = 3;
+
+function MorphingTitle({ text, animate }) {
+  return text.split(/<br\s*\/?\s*>/i).map((line, lineIndex) => (
+    <span className={`text-line hero-title-line${lineIndex ? ' text-line-accent' : ''}`} key={lineIndex}>
+      {line.split(' ').map((word, wordIndex, words) => {
+        const content = word + (wordIndex < words.length - 1 ? '\u00a0' : '');
+        // Stable words keep their DOM nodes and animation state across variations.
+        return animate ? (
+          <motion.span
+            className="hero-title-word"
+            key={`${wordIndex}-${word}`}
+            initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          >{content}</motion.span>
+        ) : <span className="hero-title-word" key={`${wordIndex}-${word}`}>{content}</span>;
+      })}
+    </span>
+  ));
+}
 
 // Invisible copies reserve the tallest slide, including after font loading or
 // resizing. Only the active text is exposed to assistive technology.
@@ -27,9 +49,10 @@ function HeroRotator({ language }) {
     { eyebrow: bundle['hero.eyebrow'], title: bundle['hero.title'], copy: bundle['hero.copy'] },
     ...heroSlides[language],
   ];
-  const labels = rotationLabels[language];
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [step, setStep] = useState(0);
+  const index = Math.floor(step / VARIATIONS_PER_MESSAGE);
+  const variation = step % VARIATIONS_PER_MESSAGE;
+  const titles = slides.map((slide, i) => [slide.title, ...heroTitleVariants[language][i]]);
   const [visible, setVisible] = useState(!document.hidden);
   const [inView, setInView] = useState(!('IntersectionObserver' in window));
   const staticText = useStaticText();
@@ -49,10 +72,10 @@ function HeroRotator({ language }) {
   }, []);
 
   useEffect(() => {
-    if (paused || !visible || !inView) return;
-    const timer = setTimeout(() => setIndex(current => (current + 1) % slides.length), ROTATION_INTERVAL);
+    if (!visible || !inView) return;
+    const timer = setTimeout(() => setStep(current => (current + 1) % (slides.length * VARIATIONS_PER_MESSAGE)), WORD_INTERVAL);
     return () => clearTimeout(timer);
-  }, [index, paused, visible, inView, slides.length]);
+  }, [step, visible, inView, slides.length]);
 
   return <div
     ref={container}
@@ -66,20 +89,18 @@ function HeroRotator({ language }) {
       </span>
     </p>
     <h1 className="hero-title hero-text-slot" data-text-mounted="true">
-      <TextSlot slides={slides} field="title" index={index} hero animate={!staticText} />
+      {titles.flat().map((title, position) => (
+        <span className="hero-text-measure" aria-hidden="true" key={position}>
+          <MorphingTitle text={title} animate={false} />
+        </span>
+      ))}
+      <span className="hero-text-active" key={index}>
+        <MorphingTitle text={titles[index][variation]} animate={!staticText} />
+      </span>
     </h1>
     <p className="hero-text hero-text-slot">
       <TextSlot slides={slides} field="copy" index={index} animate={!staticText} />
     </p>
-    <div className="hero-rotation-controls" role="group" aria-label={labels.controls}>
-      <span className="hero-slide-count">{String(index + 1).padStart(2, '0')} <span>/ 04</span></span>
-      <button type="button" onClick={() => setPaused(value => !value)} aria-pressed={paused} data-rotation-pause>
-        <span aria-hidden="true">{paused ? '▷' : 'Ⅱ'}</span> {paused ? labels.play : labels.pause}
-      </button>
-      <button type="button" onClick={() => setIndex(current => (current + 1) % slides.length)} aria-label={labels.next} data-rotation-next>
-        <span aria-hidden="true">→</span>
-      </button>
-    </div>
   </div>;
 }
 
