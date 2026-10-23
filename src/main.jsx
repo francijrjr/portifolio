@@ -5,6 +5,7 @@ import {
   MonitorSmartphone, Send, Server, Terminal, User, Workflow,
 } from 'lucide';
 import { initTextEffects } from './text-effects.jsx';
+import { initHeroRotation } from './hero-rotator.jsx';
 
 createIcons({ icons: {
   ArrowDownRight, ArrowUpRight, ArrowUp, Brain, Compass, GitBranch,
@@ -13,3 +14,4 @@ createIcons({ icons: {
 } });
 
 initTextEffects();
+initHeroRotation();

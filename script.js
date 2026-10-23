@@ -346,6 +346,7 @@ function applyTranslations(language) {
   document.documentElement.lang = language === "pt" ? "pt-BR" : language === "en" ? "en" : "es";
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
+    if (element.closest('[data-hero-intro][data-text-mounted="true"]')) return;
     const key = element.getAttribute("data-i18n");
     const value = bundle[key];
     if (typeof value === "string") {
@@ -358,6 +359,7 @@ function applyTranslations(language) {
   });
 
   document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+    if (element.closest('[data-hero-intro][data-text-mounted="true"]')) return;
     const key = element.getAttribute("data-i18n-html");
     const value = bundle[key];
     if (typeof value === "string") {
@@ -525,3 +527,5 @@ initContactForm();
 initRevealAnimations();
 initYear();
 initVisitorCounter();
+
+export { translations };

@@ -33,10 +33,14 @@ Sempre execute o build depois de editar `script.js` ou `src/`.
   instalação manual, com a propriedade `as` adicionada para preservar HTML semântico.
 - `src/text-effects.jsx`: integração dos títulos, troca de idioma e alternativa
   estática para movimento reduzido ou navegadores sem IntersectionObserver.
-- `data-text-effect="hero"`: entrada por palavra, com a segunda frase em azul.
+- `src/hero-slides.js`: mensagens de apresentação em PT, EN e ES.
+- `src/hero-rotator.jsx`: alterna chamada, título e descrição juntos a cada 7 segundos,
+  com controles para pausar e avançar. A segunda frase do título aparece em azul.
 - `data-text-effect="heading"`: entrada dos títulos de seção ao entrar na tela.
-- As animações ocorrem uma vez, sem repetição contínua. Os textos continuam no
-  HTML inicial para leitura sem JavaScript e indexação.
+- Os títulos das seções animam uma vez. A apresentação pausa ao receber foco,
+  durante hover, fora da tela ou em uma aba oculta. Com movimento reduzido, a
+  troca é manual. O espaço reservado evita deslocar os botões entre mensagens.
+  Os textos continuam no HTML inicial para leitura sem JavaScript e indexação.
 
 Origem: [React Bits, revisão e12c221](https://github.com/DavidHDev/react-bits/tree/e12c22192ac7b4b452c5e2feb9b586d74765d696).
 Licença original preservada em `public/licenses/react-bits.md`.

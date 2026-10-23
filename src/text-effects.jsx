@@ -6,7 +6,7 @@ import BlurText from './components/react-bits/BlurText.jsx';
 const roots = new Map();
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-function useStaticText() {
+export function useStaticText() {
   const [reduced, setReduced] = useState(motionPreference.matches);
   useEffect(() => {
     const update = () => setReduced(motionPreference.matches);
@@ -16,7 +16,7 @@ function useStaticText() {
   return reduced || !('IntersectionObserver' in window);
 }
 
-function TextLines({ text, hero, animate = false }) {
+export function TextLines({ text, hero, animate = false }) {
   const lines = text.split(/<br\s*\/?\s*>/i);
   return lines.map((line, index) => {
     const className = `text-line${hero && index > 0 ? ' text-line-accent' : ''}`;
