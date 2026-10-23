@@ -1,0 +1,90 @@
+/*! React Bits BlurText — Copyright (c) 2026 David Haz.
+ * Source: DavidHDev/react-bits@e12c22192ac7b4b452c5e2feb9b586d74765d696
+ * License: public/licenses/react-bits.md
+ * Local change: configurable semantic element via the `as` prop.
+ */
+
+Bundled license information:
+
+react/cjs/react.production.js:
+  /**
+   * @license React
+   * react.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+scheduler/cjs/scheduler.production.js:
+  /**
+   * @license React
+   * scheduler.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+react-dom/cjs/react-dom.production.js:
+  /**
+   * @license React
+   * react-dom.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+react-dom/cjs/react-dom-client.production.js:
+  /**
+   * @license React
+   * react-dom-client.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+react/cjs/react-jsx-runtime.production.js:
+  /**
+   * @license React
+   * react-jsx-runtime.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+lucide/dist/esm/createElement.js:
+lucide/dist/esm/replaceElement.js:
+lucide/dist/esm/defaultAttributes.js:
+lucide/dist/esm/icons/arrow-down-right.js:
+lucide/dist/esm/icons/arrow-up-right.js:
+lucide/dist/esm/icons/arrow-up.js:
+lucide/dist/esm/icons/brain.js:
+lucide/dist/esm/icons/compass.js:
+lucide/dist/esm/icons/git-branch.js:
+lucide/dist/esm/icons/github.js:
+lucide/dist/esm/icons/layout-grid.js:
+lucide/dist/esm/icons/linkedin.js:
+lucide/dist/esm/icons/mail.js:
+lucide/dist/esm/icons/message-circle-more.js:
+lucide/dist/esm/icons/monitor-smartphone.js:
+lucide/dist/esm/icons/send.js:
+lucide/dist/esm/icons/server.js:
+lucide/dist/esm/icons/terminal.js:
+lucide/dist/esm/icons/user.js:
+lucide/dist/esm/icons/workflow.js:
+lucide/dist/esm/lucide.js:
+  /**
+   * @license lucide v0.468.0 - ISC
+   *
+   * This source code is licensed under the ISC license.
+   * See the LICENSE file in the root directory of this source tree.
+   */

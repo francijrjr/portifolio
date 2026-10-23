@@ -7,7 +7,7 @@ const translations = {
     "nav.projects": "projetos/",
     "nav.process": "processo.md",
     "nav.contact": "contato.sh",
-    "hero.eyebrow": "Portfólio em versão editorial",
+    "hero.eyebrow": "Desenvolvimento com visão de produto",
     "hero.title": "Código que entende o negócio.<br />Decisões que viram produto.",
     "hero.copy": "Eu construo interfaces, APIs e análises que traduzem complexidade em soluções claras, rápidas e confiáveis.",
     "hero.cta.projects": "Ver projetos",
@@ -103,7 +103,7 @@ const translations = {
     "form.message.label": "Mensagem",
     "form.message.placeholder": "Explique brevemente o que você precisa.",
     "form.submit": "Preparar mensagem no WhatsApp",
-    "form.note": "Sem backend: o formulário prepara a mensagem e abre o WhatsApp com seus dados.",
+    "form.note": "Revise sua mensagem no WhatsApp antes de enviar.",
     "footer.counter": "Visitantes",
     "footer.counterTitle": "Acessos ao portfólio",
     "footer.total": "Total",
@@ -115,7 +115,7 @@ const translations = {
     "nav.projects": "projects/",
     "nav.process": "process.md",
     "nav.contact": "contact.sh",
-    "hero.eyebrow": "Editorial portfolio version",
+    "hero.eyebrow": "Development with a product mindset",
     "hero.title": "Code that understands the business.<br />Decisions that become product.",
     "hero.copy": "I build interfaces, APIs, and analysis that turn complexity into clear, fast, and reliable solutions.",
     "hero.cta.projects": "View projects",
@@ -211,7 +211,7 @@ const translations = {
     "form.message.label": "Message",
     "form.message.placeholder": "Briefly explain what you need.",
     "form.submit": "Prepare WhatsApp message",
-    "form.note": "No backend: the form prepares the message and opens WhatsApp with your details.",
+    "form.note": "Review your message in WhatsApp before sending it.",
     "footer.counter": "Visitors",
     "footer.counterTitle": "Portfolio visits",
     "footer.total": "Total",
@@ -223,7 +223,7 @@ const translations = {
     "nav.projects": "proyectos/",
     "nav.process": "proceso.md",
     "nav.contact": "contacto.sh",
-    "hero.eyebrow": "Portafolio en versión editorial",
+    "hero.eyebrow": "Desarrollo con visión de producto",
     "hero.title": "Código que entiende el negocio.<br />Decisiones que se vuelven producto.",
     "hero.copy": "Construyo interfaces, APIs y análisis que transforman la complejidad en soluciones claras, rápidas y confiables.",
     "hero.cta.projects": "Ver proyectos",
@@ -319,7 +319,7 @@ const translations = {
     "form.message.label": "Mensaje",
     "form.message.placeholder": "Explica brevemente lo que necesitas.",
     "form.submit": "Preparar mensaje en WhatsApp",
-    "form.note": "Sin backend: el formulario prepara el mensaje y abre WhatsApp con tus datos.",
+    "form.note": "Revisa tu mensaje en WhatsApp antes de enviarlo.",
     "footer.counter": "Visitantes",
     "footer.counterTitle": "Visitas al portafolio",
     "footer.total": "Total",
@@ -337,7 +337,8 @@ const languageAliases = {
 
 function normalizeLanguage(language) {
   const key = (language || "pt").toLowerCase();
-  return languageAliases[key] || key.split("-")[0] || "pt";
+  const normalized = languageAliases[key] || key.split("-")[0];
+  return translations[normalized] ? normalized : "pt";
 }
 
 function applyTranslations(language) {
@@ -348,6 +349,10 @@ function applyTranslations(language) {
     const key = element.getAttribute("data-i18n");
     const value = bundle[key];
     if (typeof value === "string") {
+      if (element.hasAttribute("data-text-effect")) {
+        element.dataset.motionText = value;
+        if (element.dataset.textMounted === "true") return;
+      }
       element.textContent = value;
     }
   });
@@ -356,6 +361,10 @@ function applyTranslations(language) {
     const key = element.getAttribute("data-i18n-html");
     const value = bundle[key];
     if (typeof value === "string") {
+      if (element.hasAttribute("data-text-effect")) {
+        element.dataset.motionText = value;
+        if (element.dataset.textMounted === "true") return;
+      }
       element.innerHTML = value;
     }
   });
@@ -370,9 +379,11 @@ function applyTranslations(language) {
 
   document.querySelectorAll("[data-lang-btn]").forEach((button) => {
     button.classList.toggle("is-active", button.dataset.langBtn === language);
+    button.setAttribute("aria-pressed", String(button.dataset.langBtn === language));
   });
 
   window.localStorage.setItem("portfolio-language", language);
+  window.dispatchEvent(new Event("portfolio:language-change"));
 }
 
 function initLanguageSwitch() {
@@ -386,10 +397,12 @@ function initLanguageSwitch() {
 
 function initRevealAnimations() {
   const targets = document.querySelectorAll(".reveal");
-  if (!targets.length || !("IntersectionObserver" in window)) {
+  if (!targets.length || !("IntersectionObserver" in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     targets.forEach((element) => element.classList.add("visible"));
     return;
   }
+
+  document.documentElement.classList.add("motion-ready");
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -506,16 +519,9 @@ async function initVisitorCounter() {
   }
 }
 
-function initIcons() {
-  if (window.lucide) {
-    window.lucide.createIcons();
-  }
-}
-
 initLanguageSwitch();
 initWhatsAppLinks();
 initContactForm();
 initRevealAnimations();
 initYear();
 initVisitorCounter();
-initIcons();
